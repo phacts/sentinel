@@ -36,6 +36,13 @@ class BcryptHasher implements HasherInterface
      */
     public function hash($value)
     {
+
+
+        // SRG - Using the same mechanism for hashing that we used to use to maintain
+        // compatibility with old passwords. 01/24/16
+        return crypt($value, '90frsu9u2oj90fsaosaltcity0324jklfjsaoip23jfhasJLFSioSJIOE239d');
+
+
         $salt = $this->createSalt();
 
         // Format the strength
